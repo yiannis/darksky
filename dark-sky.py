@@ -24,7 +24,7 @@ USAGE= sys.argv[0] \
  + "\n\nDefault location is Athens, Greece\n"
 
 try:
-    opts, args = getopt.getopt( sys.argv[1:], "h", ['help', 'begin=', 'end=', 'lat=', 'lon=', 'elev='] )
+    opts, args = getopt.getopt( sys.argv[1:], "hv", ['help', 'verbose', 'begin=', 'end=', 'lat=', 'lon=', 'elev='] )
 except getopt.GetoptError:
     print USAGE
     sys.exit(2)
@@ -34,11 +34,14 @@ opt_end   = '2015/05/01 12:00:00'
 opt_lon   = '23.716667'
 opt_lat   = '37.966667'
 opt_elev  = 100
+opt_verbose = 0
 
 for option, argument in opts:
     if option in ('-h', '--help'):
         print USAGE
         sys.exit(1)
+    elif option in ('-v', '--verbose'):
+        opt_verbose = 1
     elif option == '--begin':
         opt_begin = argument
     elif option == '--end':
@@ -88,13 +91,15 @@ while current_date < end_date:
 	  nightfall = 0
 
 	local_date = ephem.localtime( ephem.Date( current_date ) )
-#	print '{date},{sun_alt},{moon_alt},{moon_phase},{night}'.format(
-#		date       = local_date,
-#		sun_alt    = sun.alt,
-#		moon_alt   = moon.alt,
-#		moon_phase = moon.phase,
-#		night      = nightfall,
-#	)
+
+	if opt_verbose:
+		print '{date},{sun_alt},{moon_alt},{moon_phase},{night}'.format(
+			date       = local_date,
+			sun_alt    = sun.alt,
+			moon_alt   = moon.alt,
+			moon_phase = moon.phase,
+			night      = nightfall,
+		)
 
 	if nightfall and not nightfall_previous:
 		nightfall_start_date = current_date
