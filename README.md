@@ -11,7 +11,7 @@ You can open this file with a spreadsheet application for viewing / editing.
 Alternatively, you can import it in a calendar (eg. you can directly import the .csv file in your Google calendar)
 
 ## Usage:
-./dark-sky --begin '2015/03/31 12:00:00' --end '2015/05/01 12:00:00' --lon '23.716667' --lat '37.966667' --elev 100" [file.csv]
+`./dark-sky --begin '2015/03/31 12:00:00' --end '2015/05/01 12:00:00' --lon '23.716667' --lat '37.966667' --elev 100" [file.csv]`
 The default location is Athens, Greece.
 
 
@@ -19,6 +19,7 @@ The default location is Athens, Greece.
 I wrote this script for myself - learning Python on the way...
 It looks that it is working OK, but I'm not making any bold claims about accuracy.
 Here is an output:
+```
 Subject,Start Date,Start Time,End Date,End Time
 Dark Sky (0.1h) Moon 88%,2015-06-05,22:38:00,2015-06-05,22:42:00
 Dark Sky (0.8h) Moon 80%,2015-06-06,22:39:00,2015-06-06,23:28:00
@@ -29,5 +30,6 @@ Dark Sky (3.4h) Moon 35%,2015-06-10,22:42:00,2015-06-11,02:04:00
 Dark Sky (4.0h) Moon 25%,2015-06-11,22:43:00,2015-06-12,02:41:00
 Dark Sky (4.6h) Moon 15%,2015-06-12,22:43:00,2015-06-13,03:21:00
 Dark Sky (5.3h) Moon 8%,2015-06-13,22:44:00,2015-06-14,04:02:00
+```
 
 As you can see even a 5 minute window will be printed
