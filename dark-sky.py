@@ -29,8 +29,8 @@ except getopt.GetoptError:
     print USAGE
     sys.exit(2)
 
-opt_begin = '2015/03/31 12:00:00'
-opt_end   = '2015/05/01 12:00:00'
+opt_begin = ''
+opt_end   = ''
 opt_lon   = '23.716667'
 opt_lat   = '37.966667'
 opt_elev  = 100
@@ -52,6 +52,10 @@ for option, argument in opts:
         opt_lon = argument
     elif option == '--elev':
         opt_elev = argument
+
+if not opt_begin or not opt_end:
+	print USAGE
+	sys.exit(1)
 
 if args:
     outfile = args[0]
